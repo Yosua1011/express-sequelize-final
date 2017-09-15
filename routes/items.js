@@ -22,7 +22,7 @@ router.get('/add', (req,res) => {
         name: ``,
         brand: ``,
         codeitem: ``,
-        // SupplierId: req.body.SubjectId,
+        SupplierId: req.body.SubjectId,
         createdAt: new Date(),
         udpatedAt: new Date()
     }
@@ -34,7 +34,7 @@ router.post('/add', (req, res) => {
         name: `${req.body.name}`,
         brand: `${req.body.brand}`,
         codeitem: `${req.body.codeitem}`,
-        // SupplierId: req.body.SubjectId,
+        SupplierId: req.body.SubjectId,
         createdAt: new Date(),
         udpatedAt: new Date()
     })
@@ -47,7 +47,7 @@ router.post('/add', (req, res) => {
             name: `${req.body.name}`,
             brand: `${req.body.brand}`,
             codeitem: `${req.body.codeitem}`,
-            // SupplierId: req.body.SubjectId,
+            SupplierId: req.body.SubjectId,
             createdAt: new Date(),
             udpatedAt: new Date()
         }

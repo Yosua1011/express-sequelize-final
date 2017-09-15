@@ -76,7 +76,7 @@ router.post('/edit/:id',(req, res) => {
     models.Suppliers.update({
         name: `${req.body.name}`,
         kota: `${req.body.kota}`,
-        // ItemId: req.body.ItemId,
+        ItemId: req.body.ItemId,
         createdAt: new Date(),
         udpatedAt: new Date()
     }, {

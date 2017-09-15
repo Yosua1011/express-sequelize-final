@@ -23,8 +23,9 @@ module.exports = (sequelize, DataTypes) => {
           })
         }
       }
-    }
-  }, {
+    },
+    SupplierId: DataTypes.INTEGER    
+  },{
     // hooks: {
     //   beforeCreate: (data) => {
     //     let kodenya = ''
@@ -35,8 +36,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Item.associate = function (models) {
-    Item.hasMany(models.Suppliers)
-    // Item.belongsToMany(models.Supplier, {through: 'SupplierItem'})
+    Item.belongsToMany(models.Suppliers, {through: 'SupplierItem'})
   };
 
   return Item;

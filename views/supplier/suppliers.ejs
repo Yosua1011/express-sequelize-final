@@ -10,6 +10,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Kota</th>
+        <th>List Item</th>
         <th>Add Item</th>
         <th>Actions</th>
       </tr>
@@ -26,7 +27,9 @@
             <%}%>
         </td>
         <td>
-          <a href="/suppliers/<%=row.id%>/additem">ADD ITEM</a> |
+            <a href="/suppliers/<%=row.id%>/additem">ADD ITEM</a>
+        </td>
+        <td>
           <a href="/suppliers/edit/<%=row.id%>">EDIT</a> |
           <a href="/suppliers/delete/<%=row.id%>">DELETE</a>
         </td>

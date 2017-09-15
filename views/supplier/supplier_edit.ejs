@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partial/head %>
+  <body>
+    <%- include ../partial/menubar %>
+    <br><br>
+    <form class="" action="/suppliers/edit/<%= supplier[0].id%>" method="POST">
+    <p> Name
+        <br>
+      <input type="text" name="name" value="<%= supplier[0].name%>" placeholder="Name">
+    </p>
+    <p> Kota
+        <br>
+      <input type="text" name="kota" value="<%= supplier[0].kota%>" placeholder="Kota">
+    </p>
+      <input type="submit" value="Save">
+    </form>
+  </body>
+</html>

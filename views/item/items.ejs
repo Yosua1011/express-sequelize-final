@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partial/head %>
+  <body>
+    <%- include ../partial/menubar %>
+    <br>
+    <h2>Items Data</h2>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Brand</th>
+        <th>Codeitem</th>
+        <th>Actions</th>
+      </tr>
+      <% data_item.forEach((row, index) => { %>
+      <tr>
+        <td><%=row.id%></td>
+        <td><%=row.name%></td>
+        <td><%=row.brand%></td>
+        <td><%=row.codeitem%></td>
+        <td>
+          <a href="/items/edit/<%=row.id%>">EDIT</a> |
+          <a href="/items/delete/<%=row.id%>">DELETE</a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+    <br></br>
+    <a href="/items/add"> Add Item </a>
+  </body>
+</html>

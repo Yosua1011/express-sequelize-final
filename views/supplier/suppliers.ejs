@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partial/head %>
+  <body>
+    <%- include ../partial/menubar %>
+    <br>
+    <h2>List Supplier</h2>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Kota</th>
+        <th>Actions</th>
+      </tr>
+      <% data_supplier.forEach((row, index) => { %>
+      <tr>
+        <td><%=row.id%></td>
+        <td><%=row.name%></td>
+        <td><%=row.kota%></td>
+        <td>
+          <a href="/suppliers/edit/<%=row.id%>">EDIT</a> |
+          <a href="/suppliers/delete/<%=row.id%>">DELETE</a>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+    <br></br>
+    <a href="/suppliers/add"> Add Supplier </a>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <%- include ../partial/head %>
+  <body>
+    <%- include ../partial/menubar %>
+    <br><br>
+    <form class="" action="/items/add" method="POST">
+    <p> Name
+        <br>
+      <input type="text" name="name" value="" placeholder="Name">
+    </p>
+    <p> Brand
+        <br>
+      <input type="text" name="brand" value="" placeholder="Brand">
+    </p>
+    <p> Codeitem
+        <br>
+      <input type="text" name="codeitem" value="" placeholder="Codeitem">
+    </p>
+      <input type="submit" value="Save">
+    </form>
+  </body>
+</html>

@@ -10,6 +10,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Kota</th>
+        <th>Add Item</th>
         <th>Actions</th>
       </tr>
       <% data_supplier.forEach((row, index) => { %>
@@ -18,6 +19,14 @@
         <td><%=row.name%></td>
         <td><%=row.kota%></td>
         <td>
+            <% if (row.ItemId!==null) {%>
+              <%=row.Item.name%>
+            <%} else {%>
+              No Item Yet
+            <%}%>
+        </td>
+        <td>
+          <a href="/suppliers/<%=row.id%>/additem">ADD ITEM</a> |
           <a href="/suppliers/edit/<%=row.id%>">EDIT</a> |
           <a href="/suppliers/delete/<%=row.id%>">DELETE</a>
         </td>

@@ -13,6 +13,19 @@
         <br>
       <input type="text" name="kota" value="<%= supplier[0].kota%>" placeholder="Kota">
     </p>
+    <p>
+            <select class="" name="ItemId">
+              <% data_item.forEach(row => { %>
+              <option value="<%=row.id%>"
+    
+                <% if(supplier[0].ItemId == row.id ) { %>
+                selected
+                <% } %>
+    
+                ><%=row.name%></option>
+              <% }) %>
+            </select>
+          </p>
       <input type="submit" value="Save">
     </form>
   </body>

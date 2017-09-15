@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include ../partial/head %>
+<body>
+    <%- include ../partial/menubar %>
+    <br><br>
+    <h2>Add Item for Supplier</h2>
+    <a href="/suppliers">Show All Supplier</a>
+    <br><br>
+    <table border="1">
+        <tr>
+            <td>Name</td>
+            <td><%=data_supplier[0].name%></td>
+        </tr>
+        <tr>
+            <td>Kota</td>
+            <td><%=data_supplier[0].kota%></td>
+        </tr>
+    </table>
+    <br>
+    <p>Choose Item: </p>
+    <form class="" action="/suppliers/<%=data_supplier[0].id%>/additem" method="POST">
+        <select class="" name="ItemId">
+            <% data_item.forEach(row => { %>
+                <option value="<%=row.id%>"><%=row.name%></option>
+            <% }) %>
+        </select><br><br>
+        <input type="submit" value="Add Item">
+    </form>
+</body>
+</html>

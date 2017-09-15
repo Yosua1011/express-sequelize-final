@@ -90,4 +90,40 @@ router.post('/edit/:id',(req, res) => {
     })
 })
 
+//routes related to item
+router.get('/:id/additem', (req,res) => {
+    models.Suppliers.findAll({
+        where: {
+            id: `${req.params.id}`
+        }
+    })
+    .then(supplier => {
+        models.Item.findAll()
+        .then(item => {
+            res.render('supplier/supplier_add_item', {data_supplier: supplier, data_item: item, title: 'Add Item To Supplier'})
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    })
+    .catch(err => {
+
+    })
+})
+
+router.post('/:id/additem', (req,res) => {
+    models.SupplierItem.create({
+        SupplierId: `${req.params.id}`,
+        ItemId: `${req.body.ItemId}`,
+        createdAt: new Date(),
+        updateAt: new Date()
+    })
+    .then(supplier => {
+        res.redirect('/suppliers')
+    })
+    .catch(err => {
+        console.log(err)
+    })
+})
+
 module.exports = router

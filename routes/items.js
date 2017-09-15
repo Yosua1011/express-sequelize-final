@@ -1,6 +1,7 @@
 let express = require('express');
 let router = express.Router();
 const models = require('../models')
+var codeItem = require('../helpers/codeitem')
 
 router.get('/', (req, res) => {
     models.Item.findAll({ 
@@ -17,13 +18,15 @@ router.get('/', (req, res) => {
 })
 
 router.get('/add', (req,res) => {
-    models.Item.findAll()
-    .then(item => {
-        res.render('item/item_add', {data_item: item, title: 'New Item'})
-    })
-    .catch(err => {
-        console.log(err)
-    })
+    let data_temporary = {
+        name: ``,
+        brand: ``,
+        codeitem: ``,
+        // SupplierId: req.body.SubjectId,
+        createdAt: new Date(),
+        udpatedAt: new Date()
+    }
+    res.render('item/item_add', {data_item: data_temporary, data_error: false, title: 'New Item'})
 })
 
 router.post('/add', (req, res) => {
@@ -36,10 +39,19 @@ router.post('/add', (req, res) => {
         udpatedAt: new Date()
     })
     .then(items => {
-        res.redirect('/items')
+            res.redirect('/items')
     })
     .catch(err => {
         console.log(err)
+        let data_temporary = {
+            name: `${req.body.name}`,
+            brand: `${req.body.brand}`,
+            codeitem: `${req.body.codeitem}`,
+            // SupplierId: req.body.SubjectId,
+            createdAt: new Date(),
+            udpatedAt: new Date()
+        }
+        res.render('item/item_add', {data_item: data_temporary, data_error: true, title: 'New Item'})
     })
 })
 
